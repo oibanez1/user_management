@@ -1,0 +1,45 @@
+package com.example.model;
+
+import java.io.Serializable;
+
+public class User implements Serializable{
+    private String userName;
+    private String userEmail;
+    private String userCountry;
+    private int userAge;
+    private int id;
+
+    public User() {
+    }
+
+    public String getUser() {
+        return this.userName;
+    }
+    public void setUser(String name) {
+        this.userName = name;
+    }
+    public String getEmail() {
+        return this.userEmail;
+    }
+    public void setEmail(String email) {
+        this.userEmail = email; 
+    }
+    public String getCountry() {
+        return this.userCountry;
+    }
+    public void setCountry(String country) {
+        this.userCountry = country; 
+    }
+    public int getAge() {
+        return this.userAge;
+    }
+    public void setAge(int age) {
+        this.userAge = age; 
+    }
+    public int getId() {
+        return this.id;
+    }
+    public void setId(int age) {
+        this.userAge = id; 
+    }
+}

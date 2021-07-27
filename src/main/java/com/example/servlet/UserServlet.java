@@ -1,4 +1,4 @@
-package com.example;
+package com.example.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 
 @WebServlet(description = "servlet one", urlPatterns = { "/myapp" })
-public class App extends HttpServlet {
+public class UserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
