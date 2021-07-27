@@ -9,7 +9,12 @@ public class User implements Serializable{
     private int userAge;
     private int id;
 
-    public User() {
+    public User(String name, String email, String country, int age, int id) {
+        this.userName = name;
+        this.userEmail = email;
+        this.userCountry = country;
+        this.userAge = age;
+        this.id = id;
     }
 
     public String getUser() {
