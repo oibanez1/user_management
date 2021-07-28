@@ -17,7 +17,7 @@ import com.example.model.User;
 public class UserDAO implements DAO<User> {
 
     public UserDAO(){}
-
+    // SQL queries - '?' are placeholders
     private static final String SELECT_BY_ID = "SELECT userId, userName, email, country, userAge from users WHERE userId=?";
     private static final String SELECT_ALL = "SELECT * from users";
     private static final String ADD_USER = "INSERT INTO users" + " (userName, email, country, userAge) VALUES" + " (?,?,?,?);";
@@ -53,6 +53,7 @@ public class UserDAO implements DAO<User> {
         }
         return connection;
     }
+    //Reusable common method
     public User getFieldsFromResultSet(ResultSet res) throws SQLException{
         User user = null;
         while(res.next()){
@@ -65,7 +66,7 @@ public class UserDAO implements DAO<User> {
         }
         return user;
     }
-
+    // try with resources statement used so connection is closed automatically
     @Override
     public User get(int id) {
         User user = null;
@@ -105,12 +106,11 @@ public class UserDAO implements DAO<User> {
         try (Connection connection = getConnection();
             PreparedStatement prepStatement = connection.prepareStatement(ADD_USER);)
         {   
-            prepStatement.setInt(1, newUser.getId());
-            prepStatement.setString(2, newUser.getUserName());
-            prepStatement.setString(3, newUser.getEmail());
-            prepStatement.setString(4, newUser.getCountry());
-            prepStatement.setInt(5, newUser.getAge());
-            prepStatement.executeUpdate();
+            prepStatement.setString(1, newUser.getUserName());
+            prepStatement.setString(2, newUser.getEmail());
+            prepStatement.setString(3, newUser.getCountry());
+            prepStatement.setInt(4, newUser.getAge());
+            prepStatement.executeUpdate();  
         } catch (SQLException ex){
             System.out.println(ex.getMessage());
         }   
@@ -132,11 +132,11 @@ public class UserDAO implements DAO<User> {
         try (Connection connection = getConnection();
             PreparedStatement prepStatement = connection.prepareStatement(UPDATE_USER);)
         {
-            prepStatement.setInt(1, user.getId());
-            prepStatement.setString(2, user.getUserName());
-            prepStatement.setString(3, user.getEmail());
-            prepStatement.setString(4, user.getCountry());
-            prepStatement.setInt(5, user.getAge());
+            prepStatement.setString(1, user.getUserName());
+            prepStatement.setString(2, user.getEmail());    
+            prepStatement.setString(3, user.getCountry());
+            prepStatement.setInt(4, user.getAge());
+            prepStatement.setInt(5, user.getId());
             if(prepStatement.executeUpdate() == 0) return false;
         } catch (SQLException ex){
             System.out.println(ex.getMessage());
