@@ -1,10 +1,13 @@
 package com.example.dao;
 
+import java.util.List;
+import com.example.model.User;
+
 interface DAO<T>{
-    public T get();
-    public T getAll();
-    public T add();
-    public T delete();
-    public T update();
+    public T get(int id);
+    public List<T> getAll();
+    public void add(User user);
+    public boolean delete(int id);
+    public boolean update(User user);
 }
 
