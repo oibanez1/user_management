@@ -102,7 +102,6 @@ public class UserDAO implements DAO<User> {
     }
     @Override
     public void add(User newUser) {
-        User user = null;
         try (Connection connection = getConnection();
             PreparedStatement prepStatement = connection.prepareStatement(ADD_USER);)
         {   
@@ -131,7 +130,7 @@ public class UserDAO implements DAO<User> {
     @Override
     public boolean update(User user) {
         try (Connection connection = getConnection();
-            PreparedStatement prepStatement = connection.prepareStatement(SELECT_BY_ID);)
+            PreparedStatement prepStatement = connection.prepareStatement(UPDATE_USER);)
         {
             prepStatement.setInt(1, user.getId());
             prepStatement.setString(2, user.getUserName());
