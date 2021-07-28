@@ -7,15 +7,15 @@ public class User {
     private int userAge;
     private int id;
 
-    public User(String name, String email, String country, int age, int id) {
+    public User(int id, String name, String email, String country, int age) {
+        this.id = id;
         this.userName = name;
         this.userEmail = email;
         this.userCountry = country;
         this.userAge = age;
-        this.id = id;
     }
 
-    public String getUser() {
+    public String getUserName() {
         return this.userName;
     }
     public void setUser(String name) {
