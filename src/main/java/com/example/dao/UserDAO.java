@@ -29,7 +29,7 @@ public class UserDAO implements DAO<User> {
         Properties properties = new Properties();
         FileReader reader = null;
         try {
-            reader = new FileReader("db.properties");
+            reader = new FileReader("src/main/db/db.properties");
             properties.load(reader);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
