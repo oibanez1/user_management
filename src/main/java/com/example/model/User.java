@@ -7,6 +7,12 @@ public class User {
     private int userAge;
     private int id;
 
+    public User(String name, String email, String country, int age){
+        this.userName = name;
+        this.userEmail = email;
+        this.userCountry = country;
+        this.userAge = age;
+    }
     public User(int id, String name, String email, String country, int age) {
         this.id = id;
         this.userName = name;
