@@ -1,12 +1,8 @@
 package com.example.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,8 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.example.dao.UserDAO;
 import com.example.model.User;
-
-import org.w3c.dom.UserDataHandler;
 
 @WebServlet(description = "servlet one", urlPatterns = { "/app" })
 public class UserServlet extends HttpServlet {
