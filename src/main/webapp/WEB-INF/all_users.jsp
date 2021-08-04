@@ -9,7 +9,9 @@
 <body>
     <div class="topNav">
         <a href="">Users</a>
-        <button class="add">Add User</button>
+        <!-- /hello -->
+        <a href="${pageContext.request.contextPath}/app/new" class="button">Add User</a> 
+        <!-- <button class="add">Add User</button> -->
     </div>
     <br>
     <table>
@@ -28,7 +30,7 @@
                 <td> <c:out value="${user.getEmail()}" /> </td>
                 <td> <c:out value="${user.getCountry()}" /> </td>
                 <td> <c:out value="${user.getAge()}" /> </td>
-                <td><a href="">Update</a> &nbsp; &nbsp;<a href="">Delete</a></td>
+                <td><a href="edit?id=<c:out value='${user.getId()}'/>">Update</a> &nbsp; &nbsp;<a href="delete?id=<c:out value='${user.getId()}'/>">Delete</a></td>
                 </tr>
             </c:forEach>
     </table>
